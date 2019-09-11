@@ -1,0 +1,24 @@
+{
+   /* "babel-loader": "^8.0.6", Babel的核心
+    * "@babel/core": "^7.4.4", Babel的核心模块
+    * ---------------------------------------------
+    * "@babel/preset-env": "^7.4.4",ES6转译为ES5的插件集合,编译es6的变量！,不兼容低版本浏览器只使用@babel/preset-env即可*/
+
+  "presets": ["@babel/preset-env" ],
+
+
+  /*@babel/plugin-transform-runtime 不会变量污染，编译es6的API！*/
+    * "@babel/plugin-transform-runtime": "^7.4.4",
+    * "@babel/runtime-corejs3": "^7.4.4",包含Babel modular runtime helpers和regenerator-runtime以及core-js的库*/
+  "plugins": [
+    ["@babel/plugin-transform-runtime",{
+      "helpers": true,
+      "regenerator": true,
+      "useESModules": false,
+      "corejs": 3
+    }]
+  ]
+
+
+
+}

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="renderer" content="webkit">
+  <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport"/>
+  <meta charset="utf-8">
+  <!--<meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">-->
+  <!--<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">-->
+  <style>
+    body,html{
+      margin: 0;
+      padding: 0;
+    }
+    /*#ad iframe{*/
+    /*height: 90px !important;*/
+    /*}*/
+  </style>
+  <!--<script>-->
+  <!--(function(window, document) {-->
+  <!--var viewportEl = document.querySelector('meta[name="viewport"]'),-->
+  <!--dpr = window.devicePixelRatio || 1,-->
+  <!--maxWidth = 540;-->
+  <!--dpr = dpr > 1 ? Math.floor(dpr) : 1;-->
+  <!--document.documentElement.setAttribute('data-dpr', dpr);-->
+  <!--function resize() {-->
+  <!--var width = document.documentElement.getBoundingClientRect().width || window.innerWidth;-->
+  <!--if(width > maxWidth) {-->
+  <!--width = maxWidth;-->
+  <!--}-->
+  <!--var fontSize = (width / 320) * 100;-->
+  <!--if(fontSize > 100) {-->
+  <!--fontSize = 100 + (fontSize - 100 ) * 0.25;-->
+  <!--}-->
+  <!--document.documentElement.style.fontSize = fontSize + 'px' ;-->
+  <!--}-->
+  <!--// 直接调用一次-->
+  <!--resize();-->
+  <!--var tid;-->
+  <!--window.addEventListener('resize', function(e) {-->
+  <!--clearTimeout(tid);-->
+  <!--tid = setTimeout(resize, 300);-->
+  <!--}, false);-->
+  <!--window.addEventListener('pageshow', function(e) {-->
+  <!--if(e.persisted) {-->
+  <!--clearTimeout(tid);-->
+  <!--tid = setTimeout(resize, 300);-->
+  <!--}-->
+  <!--}, false);-->
+  <!--})(window, document);-->
+  <!--</script>-->
+</head>
+<body>
+<div id="ad" >
+</div>
+
+<style>
+  html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%
+  }
+  body {
+    line-height: 1.6;
+    font-family: -apple-system-font,Helvetica Neue,sans-serif
+  }
+  * {
+    margin: 0;
+    padding: 0
+  }
+  a img {
+    border: 0
+  }
+  img{
+    display: block;
+  }
+  a {
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0)
+  }
+  ::-webkit-input-placeholder {
+    font-family: -apple-system-font,Helvetica Neue,sans-serif
+  }
+  a {
+    -webkit-touch-callout: none
+  }
+  body,html {
+    width: 100%;
+    height: 100%
+  }
+  body {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: column;
+    flex-flow: column
+  }
+  .goodsDetail_content {
+    min-height: 100%;
+    padding-top: 1.333333rem;
+    box-sizing: border-box;
+    background: #fff;
+    position: relative;
+    overflow-y: auto;
+  }
+  .goodsDetail_content .goods_title_bar {
+    width: 100%;
+    height: 1.333333rem;
+    padding: 0 0.4rem;
+    box-sizing: border-box;
+    background: #fff;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
+  .goodsDetail_content .goods_title_icon {
+    padding: 0.4rem 0.4rem 0.4rem 0;
+    width: 0.333333rem;
+  }
+  .goodsDetail_content .goods_title_text {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    padding-right: 0.6rem;
+    font-size: 0.453333rem;
+    font-weight: 500;
+    color: rgba(21,21,21,1);
+    text-align: center;
+  }
+
+  /* 轮播图组件 */
+  .goodsDetail_content .swiper_item {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+  }
+  .goodsDetail_content .goods_goods_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .goodsDetail_content .dots_class {
+    display: none;
+  }
+  .goodsDetail_content .goods_content {
+    width: 100%;
+    padding: 0 0 1.866667rem;
+    box-sizing: border-box;
+    background: #fff;
+    overflow: hidden;
+  }
+  .goodsDetail_content .goods_price {
+    width: 100%;
+    padding: 0.2rem 0.4rem;
+    box-sizing: border-box;
+    background: #fff;
+    font-size: 0.666667rem;
+    color: rgba(255,57,57,1);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+  .goodsDetail_content .goods_price > span:first-of-type {
+    font-weight: 600;
+  }
+  .goodsDetail_content .goods_price.normal > span:nth-of-type(2) {
+    padding: 0.026667rem 0.066667rem;
+    margin-left: 0.266667rem;
+    font-size: 0.32rem;
+    font-weight: 400;
+    color: #FF3939;
+    background: #FFE6E2;
+    text-align: center;
+  }
+  .goodsDetail_content .goods_price.normal > span:nth-of-type(3) {
+    font-size: 0.373333rem;
+    color: rgba(147,147,147,1);
+    margin-left: 0.266667rem;
+    text-decoration: line-through;
+  }
+  .goodsDetail_content .goods_title_detail {
+    padding: 0 0.4rem 0.266667rem;
+    box-sizing: border-box;
+    background: #fff;
+    font-size: 0.48rem;
+    line-height: 0.666667rem;
+    font-weight: 600;
+    color: rgba(0,0,0,1);
+  }
+  .goodsDetail_content .goods_bor {
+    width: 100%;
+    height: 0.266667rem;
+    background: rgba(249,249,249,1);
+  }
+  .goodsDetail_content .goods_info_detail {
+    font-size: 0.346667rem;
+    padding: 0.266667rem 0.4rem;
+  }
+  .goodsDetail_content .goods_deliver,
+  .goodsDetail_content .goods_discount,
+  .goodsDetail_content .goods_guarantee {
+    width: 100%;
+    height: 0.933333rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+  .goodsDetail_content .goods_deliver > span:nth-of-type(1),
+  .goodsDetail_content .goods_discount > span:nth-of-type(1),
+  .goodsDetail_content .goods_guarantee > span:nth-of-type(1) {
+    color: #939393;
+    margin-right: 0.533333rem;
+  }
+  .goodsDetail_content .goods_deliver > span:nth-of-type(2) {
+    color: #333333;
+    /* margin-right: 40px; */
+  }
+  .goodsDetail_content .goods_deliver > span:nth-of-type(3) {
+    color: #333333;
+    margin-right: 0.533333rem;
+  }
+  .goodsDetail_content .goods_deliver > span:nth-of-type(4) {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    color: #939393;
+    text-align: right;
+  }
+  .goodsDetail_content .goods_discount > span:nth-of-type(2),
+  .goodsDetail_content .goods_discount > span:nth-of-type(3) {
+    display: block;
+    padding: 0 0.2rem;
+    height: 0.533333rem;
+    background: rgba(255,230,226,1);
+    border-radius: 0.266667rem;
+    margin-right: 0.266667rem;
+    font-size: 0.293333rem;
+    line-height: 0.533333rem;
+    color: #FF3939;
+    text-align: center;
+  }
+  .goodsDetail_content .goods_guarantee > span:nth-of-type(2),
+  .goodsDetail_content .goods_guarantee > span:nth-of-type(3),
+  .goodsDetail_content .goods_guarantee > span:nth-of-type(4) {
+    color: #333333;
+    margin-right: 0.4rem;
+  }
+  .goodsDetail_content .goods_shop_recommend_top > span:nth-of-type(1) {
+    font-size: 0.373333rem;
+    font-weight: bold;
+    color: #151515;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+  }
+  .goodsDetail_content .goods_shop_recommend_top > span:nth-of-type(2) {
+    font-size: 0.346667rem;
+    color: #B3BAC3;
+  }
+  .goodsDetail_content .goods_shop_recommend_top > img {
+    width: 0.16rem;
+    height: 0.32rem;
+    margin-left: 0.133333rem;
+  }
+  .goodsDetail_content .goods_description {
+    padding: 0.4rem;
+    box-sizing: border-box;
+    background: #fff;
+  }
+  .goodsDetail_content .goods_description_title {
+    font-size: 0.4rem;
+    font-weight: 500;
+    color: rgba(21,21,21,1);
+    line-height: 0.56rem;
+  }
+  .goodsDetail_content .goods_description_text {
+    margin-top: 0.133333rem;
+    font-size: 0.373333rem;
+    font-weight: 400;
+    color: rgba(147,147,147,1);
+    line-height: 0.533333rem;
+  }
+  .goodsDetail_content .button_layout {
+    width: 100%;
+    padding: 0.4rem 0;
+    background: #fff;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+  }
+  .goodsDetail_content .buyNow {
+    width: 90%;
+    height: 1.093333rem;
+    background: -webkit-linear-gradient(305deg,rgba(81,222,255,1) 0%,rgba(74,103,251,1) 65%,rgba(212,51,211,1) 100%);
+    background: linear-gradient(145deg,rgba(81,222,255,1) 0%,rgba(74,103,251,1) 65%,rgba(212,51,211,1) 100%);
+    box-shadow: 0 0.106667rem 0.266667rem 0 rgba(89,177,247,0.47);
+    border-radius: 0.546667rem;
+    text-align: center;
+    font-size: 0.426667rem;
+    line-height: 1.093333rem;
+    color: #fff;
+    font-weight: 400;
+    letter-spacing: 0.04rem;
+  }
+  .goodsDetail_content .buy_oneself > span,
+  .goodsDetail_content .buy_withother > span {
+    color: #fff;
+    font-size: 0.373333rem;
+    line-height: 0.466667rem;
+  }
+</style>
+<div class="goodsDetail_content">
+  <div class="goods_title_bar">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAABECAMAAADEFod+AAAAkFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADDIYgjAAAAL3RSTlMAAqb1++zJC9m4NyghHBMG6OTSvJSARDAWw6mFZ1lI8OCxom9bUUA9DwSNeHFtX6mAFq0AAAEfSURBVEjHzdbJTsNAEATQNh5v8b7FBjsGshK2+f+/Q3CgfarUYYSo85PsHpV6Rv462e40EsybjLX+fNvd2Z9sSWdb0tmKdDYknZ1J90y6pORcS7r7yK0LX9y6pnDr4pF0OeeeWJdxriZdlbp1weDWPW445wMn+5W7ALdbubOAJOrw8mh0kAzCh1WlrwhurOZVUKaVXBD0WoVBjuRYq2w9+JtGZS8oB4Xmwp5RXSAYxXghalJf5QHKo0IzQNmpjCMEy1DlXlCyQOUnlItCP4WyV9mUsB6Jyk5QilrlSXA9yMbJx+ruuLL1mISsh9my9ahGEW51JMLW413IegQRlLnW4ywwy++56+C4Hr5+Gtdjllspvgcyb8wL7tj1g/yHfAH5dXRfkrCwRQAAAABJRU5ErkJggg==" alt="" class="goods_title_icon">
+    <p class="goods_title_text">商品详情</p>
+  </div>
+  <div class="vux-swiper" style="transform: translate3d(0px, 0px, 0px);"><img src="https://imgzb.5ikankan.com/goods/goodsPicture/2019/7/25/tsxt2ZxKpk.jpg" alt="" class="goods_goods_img"></div>
+  <div class="goods_content">
+    <p class="goods_price normal">
+      <span>￥9.9</span> <span>商家促销</span> <span>￥29.9</span> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
+    </p>
+    <p class="goods_title_detail">懒人火锅麻辣自热便携不辣自助小火锅速食方便麻辣烫</p>
+    <div class="goods_bor"></div>
+    <div class="goods_info_detail">
+      <p class="goods_deliver">
+        <span>发货</span> <span></span> <span>快递:0.00</span><span>月销 316</span>
+      </p>
+      <p class="goods_discount"><span>优惠</span><span>店铺优惠</span><span>折扣</span></p>
+      <p class="goods_guarantee"><span>保障</span><span>正品保障</span><span>极速退款</span><span>48小时发货</span>
+      </p>
+    </div>
+    <div class="goods_bor"></div>
+    <div class="spell_list" style="display: none;">
+      <p class="spell_title"><span>立即加入Ta人的拼单，可快速成团</span>
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAaCAMAAACw0Z1uAAAAXVBMVEUAAACzusOzusOzusO0usS0u8S0u8S0u8OxusC2wsK0u8Szu8O0u8S0vMWzusKzusOzu8S0u8OyusSzvsOxvMizucSzu8Szu8S1vMSzvMS3vsazusK1v8q5ucWzusPMNDs4AAAAHnRSTlMA9Or6zYJNJA0F256UN+zevrdnMhesimxnV0NDGBZBy+tWAAAAeUlEQVQY023QSRKFIAxFUQkqgr3+vrn7X6aOTLB8s1MU9ZIU53TysXS41bAFCco4wfhTNyWUjfqWYIrqIHAvNKuDzvjroTJ+Ay/jJ/jauALJp0vZo+sPLdnX2sNyqHe2NgzQ6gojzPF6wThD+uvp8uOIqd/zGLT+nA0/nQgefMFbKAAAAABJRU5ErkJggg==" alt="">
+      </p>
+      <div class="spell_two_list"></div>
+      <div class="spell_list_dialog" style="display: none;">
+        <div class="spell_list_content">
+          <p class="spell_content_title">拼单中</p>
+          <div class="spell_content_list"></div>
+        </div>
+      </div>
+    </div>
+    <div class="goods_bor" style="display: none;"></div>
+    <div class="goods_description">
+      <div class="goods_description_title">商品简介</div>
+      <p class="goods_description_text"><p>
+      <img style="width: 100%;display: block;" src="https://imgzb.5ikankan.com/goods/goodsDescribe/2019/7/25/M2cz3QEBG2.jpg">
+      <img style="width: 100%;display: block;" src="https://imgzb.5ikankan.com/goods/goodsDescribe/2019/7/25/4Cij3NfByR.jpg">
+      <img style="width: 100%;display: block;" src="https://imgzb.5ikankan.com/goods/goodsDescribe/2019/7/25/BbACjA6NXE.jpg">
+      <img style="width: 100%;display: block;" src="https://imgzb.5ikankan.com/goods/goodsDescribe/2019/7/25/6ESnFfR8in.jpg">
+      <img style="width: 100%;display: block;" src="https://imgzb.5ikankan.com/goods/goodsDescribe/2019/7/25/Qmb4MZQr7e.jpg">
+      <img style="width: 100%;display: block;" src="https://imgzb.5ikankan.com/goods/goodsDescribe/2019/7/25/AzSa4KMZHh.jpg">
+      <img style="width: 100%;display: block;" src="https://imgzb.5ikankan.com/goods/goodsDescribe/2019/7/25/D37nWMJxhH.jpg">
+      <img style="width: 100%;display: block;" src="https://imgzb.5ikankan.com/goods/goodsDescribe/2019/7/25/ncFY8T47bH.jpg">
+    </div>
+  </div>
+  <div class="button_layout">
+    <div class="buyNow">免费领</div>
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  // var vConsole = new VConsole();
+</script>
+<script type="text/javascript">
+  // (window.TaurusWULI = window.TaurusWULI || []).push({
+  //   sid: "raclhxt",
+  //   pid: "rv7gvf2",
+  //   el: "ad", //id
+  // });
+</script>
+
+</body>
+
+</html>
